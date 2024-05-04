@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AppConfig,
-  LayoutService,
-  MenuItem,
-} from '../layout/service/app.layout.service';
+import { AppConfig, LayoutService } from '../layout/service/app.layout.service';
 import { PrimeNGConfig } from 'primeng/api';
+import { MenuService } from '../layout/app.menu.service';
+import { MenuItem } from '../layout/api/menu-item';
 
 @Component({
   selector: 'app-client',
@@ -17,7 +15,8 @@ export class ClientComponent implements OnInit {
    */
   constructor(
     private primengConfig: PrimeNGConfig,
-    private layoutService: LayoutService
+    private layoutService: LayoutService,
+    private menuService: MenuService
   ) {}
 
   ngOnInit() {
@@ -37,6 +36,6 @@ export class ClientComponent implements OnInit {
         icon: 'pi pi-home',
       },
     ];
-    this.layoutService.model.set(model);
+    this.menuService.menuItems.set(model);
   }
 }

@@ -19,12 +19,7 @@ interface LayoutState {
   staticMenuMobileActive: boolean;
   menuHoverActive: boolean;
 }
-export interface MenuItem {
-  label: string;
-  icon?: string;
-  routerLink?: string[];
-  items?: MenuItem[];
-}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -39,7 +34,6 @@ export class LayoutService {
   };
 
   config = signal<AppConfig>(this._config);
-  model = signal<MenuItem[]>([]);
 
   state: LayoutState = {
     staticMenuDesktopInactive: false,
